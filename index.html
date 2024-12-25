@@ -21,44 +21,69 @@
       Contact Us
     </h1>
 
-    <form action="" novalidate>
+    <form action="" method="post" novalidate>
       <!-- User details -->
-      <fieldset>
-        <legend>User's detail</legend>
+      <fieldset class="user-details">
+        <legend class="visually-hidden">User's detail</legend>
 
-        <label for="first-name">First Name <span>*</span></label>
-        <input type="text" id="first-name" name="first-name" autocomplete="name">
-        <span class="error FN-error">This field is required</span>
-      
-        <label for="">Last Name <span>*</span></label>
-        <input type="text" id="last-name" name="last-name" autocomplete="name">
-        <span class="error LN-error">This field is required</span>
-   
-        <label for="">Email <span>*</span></label>
-        <input type="email" id="email" name="email" autocomplete="email">
-        <span class="error E-error">This field is required</span>
-      
+        <div class="name">
+          <label for="first-name">First Name <span>*</span></label>
+          <input type="text" id="first-name" name="first-name" autocomplete="name">
+          <span class="error FN-error">This field is required</span>
+        </div>
+
+        <div class="name">
+          <label for="">Last Name <span>*</span></label>
+          <input type="text" id="last-name" name="last-name" autocomplete="name">
+          <span class="error LN-error">This field is required</span>
+        </div>
+        
+        <div class="email">
+          <label for="">Email <span>*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <span class="error E-error">Please enter a valid email address</span>
+        </div>
+
       </fieldset>
       <!-- Query type -->
-       <fieldset>
-        <legend>Query type</legend><span>*</span>
+       <fieldset class="QT">
+        <legend class="QT-leg">Query type<span> *</span></legend>
+        
+        <div>
 
-        <input type="radio" name="generalEnquiry" id="general-enquiry">
-        <label for="general-enquiry">General Enquiry</label>
-      
-        <input type="radio" name="supportRequest" id="support-request">
-        <label for="support-request">Support Request</label>
-      
+          <div class="radio ">
+            <input type="radio" name="queryType" value="generalEnquiry" id="general-enquiry">
+            <label for="general-enquiry">General Enquiry</label>
+          </div>
+          
+          <div class="radio ">
+            <input type="radio" name="queryType" value="supportRequest" id="support-request">
+            <label for="support-request">Support Request</label> 
+          </div>
+          
+          <span class="error QT-error">Please select a query type</span>
+        
+        </div>
+        
+
         <label for="message">Message <span>*</span></label>
-        <textarea rows="10" cols="30" name="message" id="message"></textarea>
+        <textarea name="message" id="message"></textarea>
+        <span class="error msg-error">This field is required</span>
 
       </fieldset>
-      <fieldset>
-        <legend>Consent and submit</legend>
 
-        <input type="checkbox" name="consent" id="consent">
-        <label for="consent">I Consent to being contacted by this team <span>*</span></label>
-    
+      
+
+      <fieldset class="submit">
+        <legend class="visually-hidden">Consent and submit</legend>
+        
+        <div class="consent">
+          <input type="checkbox" name="consent" id="consent">
+          <label for="consent">I consent to being contacted by this team <span>*</span></label>
+  
+        </div>
+        <span class="error CB-error">To submit this form, please consentto being contacted</span>
+
         <button type="submit">Submit</button>
       </fieldset>
         
