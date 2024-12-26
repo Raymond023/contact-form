@@ -84,8 +84,11 @@ label span{
     width: 100%;
 }
 
+
+
 .radio label{
     align-self: center;
+    background-color: transparent;
     flex-grow: 1;
     padding: 10px 15px;
     
@@ -97,7 +100,6 @@ input[type="text"], input[type="email"]{
     padding: 0 25px;
     margin: 10px 0;
     width: 100%;
-
 }
 
 input[type="radio"], input[type="checkbox"]{
@@ -110,7 +112,6 @@ input[type="radio"], input[type="checkbox"]{
 input[type="radio"]{
     align-self: center;
     border-radius: 50%;
-
     margin-left: 25px;
 }
 
@@ -127,7 +128,14 @@ textarea{
     width: 100%;
 }
 
-
+/* active class */
+.active-radio{
+    background-color: var(--Green-200);
+    border-color: var(--Green-600);
+}
+input[type="email"]:focus, input[type="text"]:focus,textarea{
+    outline-color: var(--Green-600);
+}
 
 /* checked inputs */
 
@@ -162,10 +170,57 @@ button{
     width: 100%;
 }
 
+/* error messaage */
+
+.error-radio{
+    background-color: var(--Green-200);
+    border-color: var(--Green-600);
+}
+
+input[type="text"].invalid, input[type="email"].invalid, textarea.invalid{
+    background-color: white;
+    border: 2px solid var(--Red);
+}
+
 .error{
     color: var(--Red);
     display: none;
 }
+
+/* success message */
+.success{
+    background-color: var(--Grey-900);
+    border-radius: 5px;
+    color: var(--Green-200);
+    display: none;
+    margin: auto;
+    padding: 10px 20px;
+    width: clamp(310px, 60%, 410px);
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h3{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.success-image{
+    background-image: url(assets/images/icon-success-check.svg);
+    display: inline-block;
+    height: 20px;
+    margin-right: 13px;
+    width: 20px;
+}
+
+.success p{
+    text-align: center;
+    line-height: 18px;
+}
+
+/* media queries */
 
 @media screen and (min-width:760px) {
     .user-details > {
@@ -202,19 +257,10 @@ button{
         border: 1px solid var(--Green-600);
     }
 
-    input[type="email"]:focus, input[type="text"]:focus,textarea{
-        outline-color: var(--Green-600);
-    }
     button:hover{
         background-color: hsl(169, 80%, 14%);
         cursor: pointer;
     }
-  
-    .active-radio{
-        background-color: var(--Green-200);
-        border-color: var(--Green-600);
-    }
-    .invalid{
-        outline-color: var(--Red);
-    }
+    
+
 }
