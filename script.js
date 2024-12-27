@@ -11,6 +11,7 @@ const consent = document.querySelector('#consent');
 const textarea = document.querySelector('textarea');
 const submitBtn = document.querySelector('button');
 
+
 const successMsg = document.querySelector('.success');
 
 
@@ -26,7 +27,7 @@ function activeRadio (e) {
 
 
 function emptyFIeld (e) {
-    e.addEventListener('blur', () => {
+    
         if(e.value === ''){
             e.classList.add('invalid');
             e.parentElement.querySelector('.error').style.display = "block";
@@ -34,39 +35,58 @@ function emptyFIeld (e) {
             e.classList.remove('invalid');
             e.parentElement.querySelector('.error').style.display = "none";
         }
-    })
 }
+
 
 function emailValidation () {
 
-    const regex = /\S+@\S+\.\S+/;
+    const regex = /^[a-zA-Z0-9._%+-]@[a-zA-Z0-9.-]+[a-zA-Z]{2,}$/;
 
-    email.addEventListener('blur', () => {
-        if(email.value === '' || email.value !== regex){
-            email.classList.add('invalid');
-            email.parentElement.querySelector('.error').style.display = "block";
-        } else{
+        if(regex.test(e.value)){
             email.classList.remove('invalid');
             email.parentElement.querySelector('.error').style.display = "none";
+        } else{
+            email.classList.add('invalid');
+            email.parentElement.querySelector('.error').style.display = "block";
         }
-    })
 }
 
-myForm.addEventListener('submit', (e) => {
+function resetSuccess () {
+    if (submit) {
+        successMsg.style.display = 'block';
+        successMsg.setAttribute('aria-hidden', 'false');
+        myForm.reset();
+    
+        } else {
+        successMsg.style.display = 'none';
+        successMsg.setAttribute('aria-hidden', 'true');
+    }
+}
+
+
+submitBtn.addEventListener('click', (e) => {
 
     e.preventDefault();
-
-    try {
-        emptyFIeld(firstName);
-    } catch (error) {
-        console.error(error)
+    if(genEnq.checked || support.checked){
+        document.querySelector('.QT-error').style.display = "none"
+    } else {
+        document.querySelector('.QT-error').style.display = "block"
     }
-    // emptyFIeld(firstName);
-    // emptyFIeld(lastName);
-    // emptyFIeld(textarea);
-    // emailValidation();
-    // activeRadio(genEnq);
-    // activeRadio(support);
-    // console.log(22)
+
+    if(consent.checked ){
+        document.querySelector('.CB-error').style.display = "none"
+    } else {
+        document.querySelector('.CB-error').style.display = "block"
+    }
+
+    
+    emptyFIeld(firstName);
+    emptyFIeld(lastName);
+    emptyFIeld(textarea);
+    emailValidation();
+    resetSuccess()
+    
 });
 
+activeRadio(genEnq);
+activeRadio(support);
