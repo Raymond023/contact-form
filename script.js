@@ -38,24 +38,29 @@ function emptyFIeld (e) {
 }
 
 
-function emailValidation () {
+function emailValidation (email) {
 
-    const regex = /^[a-zA-Z0-9._%+-]@[a-zA-Z0-9.-]+[a-zA-Z]{2,}$/;
+    //const regex = /^[a-zA-Z0-9._%+-]@[a-zA-Z0-9.-]+[a-zA-Z]{2,}$/;
+    const validRegex = /\S+@\S+\.\S+/;
 
-        if(regex.test(e.value)){
+        if(validRegex.test(email.value)){
             email.classList.remove('invalid');
             email.parentElement.querySelector('.error').style.display = "none";
-        } else{
+        } else {
             email.classList.add('invalid');
             email.parentElement.querySelector('.error').style.display = "block";
         }
 }
 
-function resetSuccess () {
+function resetSuccess (submit) {
     if (submit) {
         successMsg.style.display = 'block';
         successMsg.setAttribute('aria-hidden', 'false');
         myForm.reset();
+        setTimeout(() => {
+            successMsg.style.display = 'none';
+            successMsg.setAttribute('aria-hidden', 'false');
+        }, 5000)
     
         } else {
         successMsg.style.display = 'none';
@@ -64,16 +69,19 @@ function resetSuccess () {
 }
 
 
-submitBtn.addEventListener('click', (e) => {
+myForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
+
+    let submit = false;
+
     if(genEnq.checked || support.checked){
         document.querySelector('.QT-error').style.display = "none"
     } else {
         document.querySelector('.QT-error').style.display = "block"
     }
 
-    if(consent.checked ){
+    if(consent.checked){
         document.querySelector('.CB-error').style.display = "none"
     } else {
         document.querySelector('.CB-error').style.display = "block"
@@ -83,9 +91,19 @@ submitBtn.addEventListener('click', (e) => {
     emptyFIeld(firstName);
     emptyFIeld(lastName);
     emptyFIeld(textarea);
-    emailValidation();
-    resetSuccess()
+    emailValidation(email);
+
     
+    if (!firstName.classList.contains('invalid') &&
+        !lastName.classList.contains('invalid') &&
+        !textarea.classList.contains('invalid') &&
+        !email.classList.contains('invalid') &&
+        genEnq.checked || support.checked &&
+        consent.checked) {
+            
+        submit = true;
+    }
+    resetSuccess(submit);
 });
 
 activeRadio(genEnq);
