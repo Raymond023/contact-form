@@ -66,13 +66,15 @@ myForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
 
-    radioValidation(consent);
-    radioValidation(genEnq);
+    
+    
     radioValidation(support);
     textField.forEach(validateFIeld);
-    
     emailValidation(email);
-
+    radioValidation(consent);
+    if(!support.checked) {
+        radioValidation(genEnq)
+    }
     if (!document.querySelector('.invalid')) {
         resetSuccess()
     }
