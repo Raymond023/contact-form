@@ -30,18 +30,18 @@
 
         <div class="name">
           <label for="first-name">First Name <span>*</span></label>
-          <input type="text" id="first-name" name="first-name" autocomplete="name" aria-required="true">
+          <input class="text-field" type="text" id="first-name" name="first-name" autocomplete="name" aria-required="true">
           <span class="error FN-error">This field is required</span>
         </div>
 
         <div class="name">
           <label for="last-name">Last Name <span>*</span></label>
-          <input type="text" id="last-name" name="last-name" autocomplete="name" aria-required="true">
+          <input class="text-field" type="text" id="last-name" name="last-name" autocomplete="name" aria-required="true">
           <span class="error LN-error">This field is required</span>
         </div>
         
         <div class="email">
-          <label for="email">Email <span>*</span></label>
+          <label for="email">Email Address<span>*</span></label>
           <input type="email" id="email" name="email" autocomplete="email" aria-required="true">
           <span class="error E-error">Please enter a valid email address</span>
         </div>
@@ -49,7 +49,7 @@
       </fieldset>
       <!-- Query type -->
        <fieldset class="QT">
-        <legend class="QT-leg">Query type<span> *</span></legend>
+        <legend>Query Type<span> *</span></legend>
         
         <div>
 
@@ -69,7 +69,7 @@
         
         <div>
           <label for="message">Message <span>*</span></label>
-          <textarea name="message" id="message" aria-required="true"></textarea>
+          <textarea class="text-field" name="message" id="message" aria-required="true"></textarea>
           <span class="error msg-error">This field is required</span>
         </div>
         
