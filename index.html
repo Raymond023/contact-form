@@ -32,7 +32,7 @@
         
           <label for="first-name">First Name <span>*</span></label>
           <input aria-describedby="FN-error" class="text-field" type="text" id="first-name" name="first-name" autocomplete="given-name" required>
-          <p aria-live="assertive" role="alert" id="FN-error">
+          <p aria-live="assertive" id="FN-error">
             <span class="error">This field is required</span>
           </p>
         
@@ -42,7 +42,7 @@
         
           <label for="last-name">Last Name <span>*</span></label>
           <input aria-describedby="LN-error" class="text-field" type="text" id="last-name" name="last-name" autocomplete="family-name" required>
-          <p aria-live="assertive" role="alert" id="LN-error">
+          <p aria-live="assertive" id="LN-error">
             <span class="error">This field is required</span>
           </p>
         
@@ -52,7 +52,7 @@
         
           <label for="email">Email Address<span>*</span></label>
           <input aria-describedby="E-error" type="email" id="email" name="email" autocomplete="email" required>
-          <p aria-live="assertive" role="alert" id="E-error">
+          <p aria-live="assertive" id="E-error">
             <span class="error">Please enter a valid email address</span>
           </p>
         
@@ -73,7 +73,7 @@
             <input aria-describedby="QT-error" type="radio" name="queryType" value="supportRequest" id="support-request" required>
             Support Request
           </label> 
-          <p aria-live="assertive" role="alert" id="QT-error">
+          <p aria-live="assertive" id="QT-error">
             <span class="error">Please select a query type</span>
           </p>
           
@@ -83,7 +83,7 @@
       <div>
         <label for="message">Message <span>*</span></label>
         <textarea class="text-field" aria-describedby="msg-error" name="message" id="message" required></textarea>
-        <p aria-live="assertive" role="alert" id="msg-error">
+        <p aria-live="assertive" id="msg-error">
           <span class="error">This field is required</span>
         </p>
       </div>
@@ -94,7 +94,7 @@
           <input aria-describedby="CB-error" type="checkbox" name="consent" id="consent" required>
           I consent to being contacted by this team <span> *</span>
         </label>
-        <p aria-live="assertive" role="alert" id="CB-error">
+        <p aria-live="assertive" id="CB-error">
           <span class="error">To submit this form, please consent to being contacted</span>
         </p>
       </div>
