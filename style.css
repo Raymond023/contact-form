@@ -26,6 +26,7 @@ body{
     background-color: var(--Green-200);
     color: var(--Grey-900);
     display: flex;
+    font-family: 'Barlow Condensed', sans-serif;
     justify-content: center;
     margin: auto auto;
     min-height: 100vh;
@@ -42,7 +43,7 @@ main{
 }
 
 h1{
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 label span{
     color: var(--Green-600);
@@ -133,10 +134,7 @@ textarea{
 }
 
 /* active class */
-.active-radio{
-    background-color: var(--Green-200);
-    border-color: var(--Green-600);
-}
+
 input[type="email"]:focus, .name input:focus, textarea{
     outline-color: var(--Green-600);
 }
