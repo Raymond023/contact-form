@@ -13,9 +13,6 @@
     --Grey-500: hsl(186, 15%, 59%);
     --Grey-900: hsl(187, 24%, 22%);
 
-    /* Typography */
-
-    Font-size: 16px;
 }
 
 *{
@@ -29,6 +26,7 @@ body{
     background-color: var(--Green-200);
     color: var(--Grey-900);
     display: flex;
+    justify-content: center;
     margin: auto auto;
     min-height: 100vh;
 }
@@ -37,26 +35,14 @@ main{
     align-self: center;
     background-color: var(--White);
     border-radius: 10px;
-    margin: auto;
+    margin: auto 1rem;
+    max-width: 45.5rem;
     padding: 15px 20px;
-    width: clamp(310px, 90%, 820px);
+    width: 100%;
 }
 
-.visually-hidden{
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-    margin: -1px;
-    overflow: hidden;
-    height: 1px;
-    width: 1px;
-}
-
-fieldset{
-    border: none;
-    margin: 20px 0;
-}
-fieldset > *{
-    margin-top: 5px;
+h1{
+    margin-bottom: 15px;
 }
 label span{
     color: var(--Green-600);
@@ -72,39 +58,34 @@ label span{
     width: 100%;
 }
 
-input[type="text"], input[type="email"]{
+.name input, input[type="email"]{
     border: 1px solid var(--Grey-500);
     border-radius: 5px;
-    height: 40px;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin: 10px 0;
     width: 100%;
 }
 
 /* radio and chechbox */
 
-.QT > div {
+.QT{
+    border: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 20px 0;
 }
 
-.radio{
-    align-content: center;
+label.radio{
     border: 1px solid var(--Grey-500);
     border-radius: 5px;
     display: flex;
-    height: 40px;
+    padding: 10px;
     margin: 10px 0;
     width: 100%;
 }
-
-.radio label{
-    align-self: center;
-    background-color: transparent;
-    flex-grow: 1;
-    padding: 10px 15px;
-    
+label.radio:has(input:checked){
+    background-color: var(--Green-200);
 }
 
 input[type="radio"], input[type="checkbox"]{
@@ -114,15 +95,31 @@ input[type="radio"], input[type="checkbox"]{
     width: 15px;
 }
 
-input[type="radio"]{
+.radio input{
     align-self: center;
     border-radius: 50%;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input[type="checkbox"]{
+    margin-right: 20px;
+    margin-left: 0px;
+}
+
+.consent{
+    display: block;
+    margin: 15px 0 0px 0;
+}
+.consent label{
+    display: flex;
     margin-right: 25px;
-    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.consent label span{
+    margin-left: 5px;
+    
 }
 
 textarea{
@@ -140,7 +137,7 @@ textarea{
     background-color: var(--Green-200);
     border-color: var(--Green-600);
 }
-input[type="email"]:focus, input[type="text"]:focus,textarea{
+input[type="email"]:focus, .name input:focus, textarea{
     outline-color: var(--Green-600);
 }
 
@@ -158,17 +155,9 @@ input[type="checkbox"]:checked{
     background-image: url(assets/images/icon-checkbox-check.svg);
 }
 
-.consent{
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-.consent label{
-    margin-right: 25px;
-}
 button{
     background-color: var(--Green-600);
-    border: none;
+    border-color: var(--Green-600);
     border-radius: 7px;
     color: var(--White);
     display: block;
@@ -179,9 +168,9 @@ button{
 
 /* error messaage */
 
-input[type="text"].invalid, input[type="email"].invalid, textarea.invalid{
+.name input.invalid, input[type="email"].invalid, textarea.invalid{
     background-color: white;
-    border: 2px solid var(--Red);
+    border: 1px solid var(--Red);
 }
 
 .error{
@@ -196,8 +185,8 @@ input[type="text"].invalid, input[type="email"].invalid, textarea.invalid{
     color: var(--Green-200);
     display: none;
     margin: auto;
+    max-width: 50%;
     padding: 10px 20px;
-    width: clamp(310px, 60%, 410px);
     position: fixed;
     top: 10px;
     left: 50%;
@@ -221,14 +210,25 @@ h3{
     line-height: 18px;
 }
 
+/* hover effect */
+
+input:hover, .radio label:hover, textarea{
+    cursor: pointer;
+}
+input[type="email"]:hover, input[type="text"]:hover, textarea:hover{
+    border: 1px solid var(--Green-600);
+}
+
+button:hover{
+    background-color: hsl(169, 80%, 14%);
+    cursor: pointer;
+}
+
 /* media queries */
 
-@media screen and (min-width:760px) {
-    .user-details > {
-        flex-wrap: nowrap;
-        width: 100%;
-    }   
-    .user-details{
+@media screen and (min-width:47.5rem) {
+    
+    .user-details, .QT{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -242,26 +242,12 @@ h3{
     .email{
         display: block;
     }
-    .radio{
+    
+    label.radio{
+        display: block;
         width: 49%;
     }
     textarea{
-        height: 100px;
+        height: 6.25rem;
     }
-}
-
-@media screen and (min-width:920px) {
-    input:hover, .radio label:hover{
-        cursor: pointer;
-    }
-    input[type="email"]:hover, input[type="text"]:hover, textarea:hover{
-        border: 2px solid var(--Green-600);
-    }
-
-    button:hover{
-        background-color: hsl(169, 80%, 14%);
-        cursor: pointer;
-    }
-    
-
 }

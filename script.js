@@ -8,17 +8,6 @@ const consent = document.querySelector('#consent');
 const textField = document.querySelectorAll('.text-field');
 const successMsg = document.querySelector('.success');
 
-activeRadio(genEnq);
-activeRadio(support);
-
-function activeRadio (e) {
-    e.addEventListener('click', () => {
-        genEnq.parentElement.classList.remove('active-radio');
-        support.parentElement.classList.remove('active-radio');
-        e.parentElement.classList.add('active-radio');
-    })
-}
-
 function radioValidation (radio) {
     if (!radio.checked) {
         radio.parentElement.parentElement.querySelector('.error').style.display = 'block';
@@ -66,12 +55,11 @@ myForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
 
-    
-    
-    radioValidation(support);
     textField.forEach(validateFIeld);
     emailValidation(email);
     radioValidation(consent);
+
+    radioValidation(support);
     if(!support.checked) {
         radioValidation(genEnq)
     }

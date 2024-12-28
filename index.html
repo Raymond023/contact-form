@@ -25,88 +25,99 @@
 
     <form action="#" method="post" novalidate>
       <!-- User details -->
-      <fieldset class="user-details">
-        <legend class="visually-hidden">Your information</legend>
+
+      <div class="user-details">
 
         <div class="name">
+        
           <label for="first-name">First Name <span>*</span></label>
-          <input class="text-field" type="text" id="first-name" name="first-name" autocomplete="name" aria-required="true">
-          <span class="error FN-error">This field is required</span>
+          <input aria-describedby="FN-error" class="text-field" type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+          <p aria-live="assertive" role="alert" id="FN-error">
+            <span class="error">This field is required</span>
+          </p>
+        
         </div>
-
+  
         <div class="name">
+        
           <label for="last-name">Last Name <span>*</span></label>
-          <input class="text-field" type="text" id="last-name" name="last-name" autocomplete="name" aria-required="true">
-          <span class="error LN-error">This field is required</span>
+          <input aria-describedby="LN-error" class="text-field" type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+          <p aria-live="assertive" role="alert" id="LN-error">
+            <span class="error">This field is required</span>
+          </p>
+        
         </div>
         
         <div class="email">
+        
           <label for="email">Email Address<span>*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" aria-required="true">
-          <span class="error E-error">Please enter a valid email address</span>
+          <input aria-describedby="E-error" type="email" id="email" name="email" autocomplete="email" required>
+          <p aria-live="assertive" role="alert" id="E-error">
+            <span class="error">Please enter a valid email address</span>
+          </p>
+        
         </div>
 
-      </fieldset>
+      </div>
+
       <!-- Query type -->
-       <fieldset class="QT">
+      <fieldset class="QT">
         <legend>Query Type<span> *</span></legend>
-        
-        <div>
-
-          <div class="radio ">
-            <input type="radio" name="queryType" value="generalEnquiry" id="general-enquiry" aria-required="true">
-            <label for="general-enquiry">General Enquiry</label>
-          </div>
-          
-          <div class="radio ">
-            <input type="radio" name="queryType" value="supportRequest" id="support-request" aria-required="true">
-            <label for="support-request">Support Request</label> 
-          </div>
-          
-          <span class="error QT-error">Please select a query type</span>
-        
-        </div>
-        
-        <div>
-          <label for="message">Message <span>*</span></label>
-          <textarea class="text-field" name="message" id="message" aria-required="true"></textarea>
-          <span class="error msg-error">This field is required</span>
-        </div>
-        
-
-      </fieldset>
-
-      
-
-      <fieldset class="submit">
-        <legend class="visually-hidden">Consent and submit</legend>
-        
-        <div class="consent">
-          <input type="checkbox" name="consent" id="consent" aria-required="true">
-          <label for="consent">I consent to being contacted by this team <span>*</span></label>
             
-        </div>
-        <span class="error CB-error">To submit this form, please consent to being contacted</span>
-
+          <label class="radio" for="general-enquiry">
+            <input aria-describedby="QT-error" type="radio" name="queryType" value="generalEnquiry" id="general-enquiry" required>
+              General Enquiry
+          </label>
+          
+          <label class="radio" for="support-request">
+            <input aria-describedby="QT-error" type="radio" name="queryType" value="supportRequest" id="support-request" required>
+            Support Request
+          </label> 
+          <p aria-live="assertive" role="alert" id="QT-error">
+            <span class="error">Please select a query type</span>
+          </p>
+          
         
       </fieldset>
 
+      <div>
+        <label for="message">Message <span>*</span></label>
+        <textarea class="text-field" aria-describedby="msg-error" name="message" id="message" required></textarea>
+        <p aria-live="assertive" role="alert" id="msg-error">
+          <span class="error">This field is required</span>
+        </p>
+      </div>
+      
+      <div class="consent">
+        
+        <label for="consent">
+          <input aria-describedby="CB-error" type="checkbox" name="consent" id="consent" required>
+          I consent to being contacted by this team <span> *</span>
+        </label>
+        <p aria-live="assertive" role="alert" id="CB-error">
+          <span class="error">To submit this form, please consent to being contacted</span>
+        </p>
+      </div>
+      
+        
       <button type="submit">Submit</button>
         
     </form>
 
 
-
-    <div class="success" aria-live="assertive" aria-hidden="true" aria-atomic="true">
-      <h3>
-        <span class="success-image"></span>
-        Message Sent!
-      </h3>
-      <p>
-        Thanks for completing the form. We'll be in touch soon!
-      </p>
-      
+    <div aria-live="assertive" aria-hidden="true" aria-atomic="true">
+      <div class="success">
+        <h3>
+          <span class="success-image"></span>
+          Message Sent!
+        </h3>
+        <p>
+          Thanks for completing the form. We'll be in touch soon!
+        </p>
+        
+      </div>
     </div>
+    
     
   </main>
   
